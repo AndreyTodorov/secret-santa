@@ -15,7 +15,7 @@ erDiagram
 		DateTime emailVerified  "nullable"
 		String image  "nullable"
 		DateTime createdAt  "now()"
-		DateTime updatedAt  "now()"
+		DateTime updatedAt
 		DateTime deletedAt  "nullable"
 	}
 	VerificationToken {
