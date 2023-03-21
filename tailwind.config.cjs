@@ -2,10 +2,13 @@
 const config = {
   mode: "jit",
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
+  daisyui: {
+    styled: true,
+    base: true,
+    darkTheme: "dark",
+    themes: ["light", "dark", "coffee"],
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("daisyui"), require("@tailwindcss/forms")],
 };
 
 module.exports = config;
