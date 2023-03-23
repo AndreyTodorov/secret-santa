@@ -12,6 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.RELEASE_PAT }}
           persist-credentials: false
       - name: Setup Node.js
         uses: actions/setup-node@v3
