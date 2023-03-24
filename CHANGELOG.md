@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.1...v1.0.2) (2023-03-24)
+
+
+### Bug Fixes
+
+* i18n ([c56d015](https://github.com/AndreyTodorov/secret-santa/commit/c56d01533df9bd9b9fe50d12babbb8d6df04e8d5))
+
 ## [1.0.1](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.0...v1.0.1) (2023-03-23)
 
 ### Bug Fixes
