@@ -1,41 +1,43 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo '🏗️👷 Styling, testing and building your project before committing'
+npx lint-staged
 
-echo '🏗️👷 Styling before committing'
-yarn prettier:fix
+# echo '🏗️👷 Styling, testing and building your project before committing'
 
-# Check Prettier standards
-yarn prettier:check ||
-(
-    echo 'Prettier Check Failed. Run yarn format, add changes and try commit again.';
-    false;
-)
+# echo '🏗️👷 Styling before committing'
+# yarn prettier:fix
 
-# Check ESLint Standards
-yarn lint:check ||
-(
-        echo 'ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
-        false; 
-)
-
-# Check for hidden Typescript Errors
-yarn lint:ts ||
-(
-        echo 'Typescript Errors Found !!!'
-        false; 
-)
-
-# If everything passes... Now we can commit
-# echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
-# yarn build ||
+# # Check Prettier standards
+# yarn prettier:check ||
 # (
-#     echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
-#             Next build failed: View the errors above to see why. 
-#     '
+#     echo 'Prettier Check Failed. Run yarn format, add changes and try commit again.';
 #     false;
 # )
 
-# If everything passes... Now we can commit
-echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'
+# # Check ESLint Standards
+# yarn lint:check ||
+# (
+#         echo 'ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+#         false; 
+# )
+
+# # Check for hidden Typescript Errors
+# yarn lint:ts ||
+# (
+#         echo 'Typescript Errors Found !!!'
+#         false; 
+# )
+
+# # If everything passes... Now we can commit
+# # echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+# # yarn build ||
+# # (
+# #     echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
+# #             Next build failed: View the errors above to see why. 
+# #     '
+# #     false;
+# # )
+
+# # If everything passes... Now we can commit
+# echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'
