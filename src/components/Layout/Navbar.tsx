@@ -1,8 +1,11 @@
+import { signIn, signOut, useSession } from "next-auth/react";
 import useTranslation from "next-translate/useTranslation";
 
 const TopNavbar = () => {
   const { t } = useTranslation();
-  const name = t("common:name");
+  const projectName = t("common:name");
+
+  const { data: session } = useSession();
 
   return (
     <div className="navbar bg-base-100">
@@ -24,7 +27,7 @@ const TopNavbar = () => {
         </button>
       </div>
       <div className="flex-1">
-        <a className="btn-ghost btn text-xl normal-case">{name}</a>
+        <a className="btn-ghost btn text-xl normal-case">{projectName}</a>
       </div>
       <div className="flex-none">
         <div className="flex-none">
@@ -55,7 +58,11 @@ const TopNavbar = () => {
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              {session ? (
+                <button onClick={() => void signOut()}>Sign out</button>
+              ) : (
+                <button onClick={() => void signIn()}>Sign in</button>
+              )}
             </li>
           </ul>
         </div>

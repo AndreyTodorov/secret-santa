@@ -10,7 +10,7 @@
     "start": "next start",
     "lint:check": "eslint src",
     "lint:fix": "yarn eslint --fix",
-    "lint:ts": "tsc --noEmit --incremental",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
     "pre-commit-check": "yarn prettier:fix && yarn prettier:check && yarn lint:check && yarn lint:ts",
@@ -77,8 +77,7 @@
     "src/**/*": [
       "yarn prettier:fix",
       "yarn prettier:check"
-    ],
-    "**/*.(ts|tsx)": "yarn lint:ts"
+    ]
   },
   "ct3aMetadata": {
     "initVersion": "7.8.0"

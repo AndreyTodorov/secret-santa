@@ -2,6 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npx lint-staged
+yarn typecheck
 
 # echo '🏗️👷 Styling, testing and building your project before committing'
 
