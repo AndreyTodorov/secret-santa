@@ -2,7 +2,7 @@
   "locales": ["en-US", "de-DE", "bg-BG"],
   "defaultLocale": "en-US",
   "pages": {
-    "*": ["common"],
-    "/": ["home"]
+    "*": ["common", "forms"],
+    "/": ["home", "forms"]
   }
 }
