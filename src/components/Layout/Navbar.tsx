@@ -4,7 +4,10 @@ import Link from "next/link";
 
 const TopNavbar = () => {
   const { t } = useTranslation();
-  const projectName = t("common:name");
+  const projectName = t("common:title");
+  const parties = t("home:nav-bar.parties");
+  const signInText = t("home:nav-bar.signIn");
+  const signOutText = t("home:nav-bar.signOut");
 
   const { data: session } = useSession();
 
@@ -19,7 +22,9 @@ const TopNavbar = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <Link className="btn-ghost btn normal-case" href="/parties">
+                {parties}
+              </Link>
             </li>
             <li tabIndex={0}>
               <a>
@@ -45,9 +50,14 @@ const TopNavbar = () => {
             </li>
             <li>
               {session ? (
-                <button onClick={() => void signOut()}>Sign out</button>
+                <button
+                  className="btn-ghost btn"
+                  onClick={() => void signOut()}
+                >
+                  {signOutText}
+                </button>
               ) : (
-                <button onClick={() => void signIn()}>Sign in</button>
+                <button onClick={() => void signIn()}>{signInText}</button>
               )}
             </li>
           </ul>

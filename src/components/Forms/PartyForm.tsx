@@ -10,7 +10,6 @@ import { toast } from "react-hot-toast";
 
 const PartyForm = () => {
   const { t } = useTranslation();
-  const addNewParty = t("forms:addNewParty");
   const partyDate = t("forms:partyDate");
   const notificationDate = t("forms:notificationDate");
   const description = t("forms:description");
@@ -27,6 +26,7 @@ const PartyForm = () => {
     resolver: zodResolver(createPartySchema),
   });
 
+  const { data: parties, isLoading } = api.party.getAll.useQuery();
   const { mutateAsync, isLoading: isSubmitting } = api.party.create.useMutation(
     {
       onSuccess: () => reset(),
@@ -54,13 +54,10 @@ const PartyForm = () => {
       }
     );
   };
-
   return (
     <div className="p-3">
-      <label htmlFor="" className="px-1 text-lg">
-        {addNewParty}
-      </label>
-      <form onSubmit={void handleSubmit(onSubmit)}>
+      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex gap-3">
           <div className="py-2">
             <label
