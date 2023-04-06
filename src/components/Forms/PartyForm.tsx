@@ -60,8 +60,7 @@ const PartyForm = () => {
       <label htmlFor="" className="px-1 text-lg">
         {addNewParty}
       </label>
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={void handleSubmit(onSubmit)}>
         <div className="flex gap-3">
           <div className="py-2">
             <label
@@ -105,7 +104,7 @@ const PartyForm = () => {
             <input
               type="text "
               placeholder={budget}
-              className="input-bordered input-primary input w-full max-w-xs"
+              className="input-bordered input-primary input w-full"
               {...register("budget")}
             />
             <p className="text-orange-500">{formErrors.budget?.message}</p>
@@ -116,7 +115,7 @@ const PartyForm = () => {
           <label htmlFor="" className="px-1 text-xs font-semibold">
             {description}
           </label>
-          <div className="flex flex-col text-slate-500">
+          <div className="flex flex-col">
             <textarea
               className="textarea-primary textarea"
               placeholder={addDescription}

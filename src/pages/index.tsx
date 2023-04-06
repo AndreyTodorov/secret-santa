@@ -1,14 +1,9 @@
 import PartyForm from "@/components/Forms/PartyForm";
 import { type NextPage } from "next";
-import useTranslation from "next-translate/useTranslation";
 
 const Home: NextPage = () => {
-  const { t } = useTranslation();
-  const greeting = t("home:greeting");
-
   return (
-    <div>
-      {greeting}
+    <div className="flex items-center justify-center">
       <PartyForm />
     </div>
   );
