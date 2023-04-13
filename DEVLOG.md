@@ -10,7 +10,7 @@
 
 ## Party creation steps
 
-    1. General Info party form []
+    1. [X] General Info party form
     2. Add users
         [] Quick add Participant form
         [] All Participant section

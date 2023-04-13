@@ -5,7 +5,7 @@ export default function Document() {
   const { lang } = useTranslation();
 
   return (
-    <Html data-theme="coffee" lang={lang}>
+    <Html lang={lang}>
       <Head />
       <body>
         <Main />

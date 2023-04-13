@@ -1,6 +1,6 @@
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
-import TopNavbar from "./Navbar";
+import Navbar from "./Navbar";
 
 interface Props {
   children: React.ReactNode;
@@ -41,7 +41,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <div className="relative flex min-h-screen flex-col ">
-        <TopNavbar />
+        <Navbar />
         <main className="p-2">{children}</main>
       </div>
 

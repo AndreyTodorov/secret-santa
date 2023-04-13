@@ -26,7 +26,7 @@ const PartyForm = () => {
     resolver: zodResolver(createPartySchema),
   });
 
-  const { data: parties, isLoading } = api.party.getAll.useQuery();
+  // const { data: parties, isLoading } = api.party.getAll.useQuery();
   const { mutateAsync, isLoading: isSubmitting } = api.party.create.useMutation(
     {
       onSuccess: () => reset(),
@@ -68,7 +68,7 @@ const PartyForm = () => {
             </label>
             <div className="flex flex-col">
               <input
-                className="input-bordered input-primary input bg-transparent"
+                className=""
                 {...register("notificationAt", { valueAsDate: true })}
                 type="date"
               />
@@ -84,7 +84,7 @@ const PartyForm = () => {
             </label>
             <div className="flex flex-col">
               <input
-                className="input-bordered input-primary input bg-transparent"
+                className=""
                 type="date"
                 {...register("date", { valueAsDate: true })}
               />
@@ -101,7 +101,7 @@ const PartyForm = () => {
             <input
               type="text "
               placeholder={budget}
-              className="input-bordered input-primary input w-full"
+              className="w-full"
               {...register("budget")}
             />
             <p className="text-orange-500">{formErrors.budget?.message}</p>
@@ -114,7 +114,7 @@ const PartyForm = () => {
           </label>
           <div className="flex flex-col">
             <textarea
-              className="textarea-primary textarea"
+              className=""
               placeholder={addDescription}
               {...register("description")}
             />
@@ -122,11 +122,7 @@ const PartyForm = () => {
           </div>
         </div>
 
-        <button
-          className="btn-primary btn"
-          disabled={isSubmitting}
-          type="submit"
-        >
+        <button className="" disabled={isSubmitting} type="submit">
           {createButton}
         </button>
       </form>
