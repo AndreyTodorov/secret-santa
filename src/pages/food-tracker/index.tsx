@@ -1,11 +1,11 @@
 import { type NextPage } from "next";
 
-const Home: NextPage = () => {
+const HomeIntake: NextPage = () => {
   return (
     <div className="flex items-center justify-center">
-      <h1>This is the home Page</h1>
+      This is the Food Intake Home page
     </div>
   );
 };
 
-export default Home;
+export default HomeIntake;
