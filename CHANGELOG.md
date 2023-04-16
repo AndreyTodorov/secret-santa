@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.3...v1.0.4) (2023-04-16)
+
+
+### Bug Fixes
+
+* just to redeploy ([53ad509](https://github.com/AndreyTodorov/secret-santa/commit/53ad50936475fcc18fe726365b3389be1470a439))
+
 ## [1.0.3](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.2...v1.0.3) (2023-04-16)
 
 
