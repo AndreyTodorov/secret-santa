@@ -9,18 +9,19 @@
     "lint": "next lint",
     "start": "next start",
     "lint:check": "eslint src",
-    "lint:fix": "yarn eslint --fix",
+    "lint:fix": "eslint --fix",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
-    "pre-commit-check": "yarn prettier:fix && yarn prettier:check && yarn lint:check && yarn lint:ts",
+    "pre-commit-check": "yarn prettier:fix && yarn prettier:check && yarn lint:check && yarn typecheck",
     "prepare": "husky install",
-    "db:connect": "pscale connect monopoly dev --port 3309",
+    "db:connect": "pscale connect playground dev --port 3309",
+    "studio": "npx prisma studio",
     "db:seed": "prisma db seed",
     "db:up": "docker-compose up -d",
-    "db:migrate": "yarn prisma migrate dev",
-    "db:push": "yarn prisma db push",
-    "dx": "yarn db:up && yarn dev"
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "dx": "yarn dev"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
+    "@total-typescript/ts-reset": "^0.4.2",
     "@types/eslint": "^8.21.1",
     "@types/node": "^18.14.0",
     "@types/prettier": "^2.7.2",

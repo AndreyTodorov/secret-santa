@@ -8,6 +8,10 @@
     [x] docker database
     [x] Tailwind configs
 
+## TODO:
+
+    [ ] figure out custom layouts
+
 ## Party creation steps
 
     1. [X] General Info party form

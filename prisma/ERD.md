@@ -8,12 +8,23 @@ erDiagram
 		value FINISHED
 		value CANCELLED
 	}
+	RequestSource {
+		value Shortcut
+		value Web
+		value Postman
+	}
+	Amount {
+		value Small
+		value Medium
+		value Large
+	}
 	User {
 		String id PK  "cuid()"
 		String name  "nullable"
 		String email  "nullable"
 		DateTime emailVerified  "nullable"
 		String image  "nullable"
+		String bearerToken  "nullable"
 		DateTime createdAt  "now()"
 		DateTime updatedAt
 		DateTime deletedAt  "nullable"
@@ -57,11 +68,25 @@ erDiagram
 		DateTime deletedAt  "nullable"
 		String creatorId FK
 	}
+	IntakeEntry {
+		String id PK  "cuid()"
+		DateTime intakeAt
+		String description  "nullable"
+		RequestSource requestSource
+		Amount amount
+		DateTime createdAt  "now()"
+		DateTime updatedAt
+		DateTime deletedAt  "nullable"
+		String ownerId FK
+	}
 	User }|--|{ Participant : participant
 	Party }o--|| User : creator
 	Party }o--|| PartyStatus : "enum:status"
 	Participant }|--|{ User : user
 	Participant }o--|| ParticipantGroup : participantGroup
 	ParticipantGroup }o--|| User : creator
+	IntakeEntry }o--|| User : owner
+	IntakeEntry }o--|| RequestSource : "enum:requestSource"
+	IntakeEntry }o--|| Amount : "enum:amount"
 
 ```

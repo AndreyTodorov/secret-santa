@@ -56,9 +56,7 @@ export const partyRouter = createTRPCRouter({
         await ctx.prisma.party.create({
           data: {
             ...input,
-            creator: {
-              connect: { id: ctx.session.user.id },
-            },
+            creator: { connect: { id: ctx.session.user.id } },
           },
         });
       } catch (error) {}

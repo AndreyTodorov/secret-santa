@@ -6,13 +6,6 @@ import { z } from "zod";
  */
 const server = z.object({
   // DB
-  MYSQL_ROOT_PASSWORD: z.string().min(5),
-  MYSQL_USER: z.string().min(5),
-  MYSQL_PASSWORD: z.string().min(5),
-  DB_HOST: z.string().min(5),
-  DB_PORT: z.string(),
-  // DB_PORT: z.coerce.number().default(3306),
-  MYSQL_DATABASE: z.string().min(5),
   DATABASE_URL: z.string().trim().min(1).url(),
   // node
   NODE_ENV: z.enum(["development", "test", "production"]),
@@ -50,12 +43,6 @@ const client = z.object({
  * @type {Record<keyof z.infer<typeof server> | keyof z.infer<typeof client>, string | undefined>}
  */
 const processEnv = {
-  MYSQL_ROOT_PASSWORD: process.env.MYSQL_ROOT_PASSWORD,
-  MYSQL_USER: process.env.MYSQL_USER,
-  MYSQL_PASSWORD: process.env.MYSQL_PASSWORD,
-  DB_HOST: process.env.DB_HOST,
-  DB_PORT: process.env.DB_PORT,
-  MYSQL_DATABASE: process.env.MYSQL_DATABASE,
   DATABASE_URL: process.env.DATABASE_URL,
   NODE_ENV: process.env.NODE_ENV,
   NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
