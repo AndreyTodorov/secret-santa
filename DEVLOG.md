@@ -10,7 +10,7 @@
 
 ## TODO:
 
-    [ ] figure out custom layouts
+    [ ] figure out custom layouts?
 
 ## Party creation steps
 
