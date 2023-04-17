@@ -1,3 +1,16 @@
+## [1.0.5](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.4...v1.0.5) (2023-04-17)
+
+
+### Bug Fixes
+
+* adjust the new routes ([c524d45](https://github.com/AndreyTodorov/secret-santa/commit/c524d45bfa00d3ca6f7401a54cf857d995c7952f))
+* cards hover animation ([7fcd7b7](https://github.com/AndreyTodorov/secret-santa/commit/7fcd7b773fc42639ea8699d7d25b41185951f8fd))
+* home image visible on mobile ([3b6a1c8](https://github.com/AndreyTodorov/secret-santa/commit/3b6a1c84a1293e8cce1989c009197e909b5888c8))
+* removed unused file ([19f0849](https://github.com/AndreyTodorov/secret-santa/commit/19f0849510dbce195cfadff51296b7b6604f4263))
+* secret-santa route ([736dcd6](https://github.com/AndreyTodorov/secret-santa/commit/736dcd6a730281a128694f918971d2556aa3a568))
+* small ui tweaks ([b8a3156](https://github.com/AndreyTodorov/secret-santa/commit/b8a3156c88f6b216332530ea85278cc181c0885c))
+* ui with cards ([12cd52c](https://github.com/AndreyTodorov/secret-santa/commit/12cd52c292d3e15b35deac70250b81be87d90a55))
+
 ## [1.0.4](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.3...v1.0.4) (2023-04-16)
 
 
