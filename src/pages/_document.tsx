@@ -7,7 +7,7 @@ export default function Document() {
   return (
     <Html lang={lang}>
       <Head />
-      <body>
+      <body className="bg-stone-200 ">
         <Main />
         <NextScript />
       </body>

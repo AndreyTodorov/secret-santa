@@ -5,10 +5,15 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import useTranslation from "next-translate/useTranslation";
 import NavLink from "../NavLink";
 
+interface NavItem {
+  name: string;
+  href: string;
+  current: boolean;
+}
 // TODO: should come from BE
-const navigation = [
-  { name: "Parties", href: "/parties", current: true },
-  { name: "Participants", href: "/participants", current: false },
+const navigation: NavItem[] = [
+  //   { name: "Parties", href: "/parties", current: true },
+  //   { name: "Participants", href: "/participants", current: false },
 ];
 
 function classNames(...classes: (false | null | undefined | string)[]) {
@@ -68,7 +73,7 @@ export default function Navbar() {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      src="https://lh3.googleusercontent.com/a/AGNmyxZDSaxRivvFbMMq9IpMqhAKxP2Ibew0dC2XHKWODcI=s96-c-rg-br100"
                       alt=""
                     />
                   </Menu.Button>
