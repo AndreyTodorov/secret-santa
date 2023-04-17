@@ -42,7 +42,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       </Head>
       <div className="relative flex min-h-screen flex-col ">
         <Navbar />
-        <main className="p-2">{children}</main>
+        <main className="h-screen w-full">{children}</main>
       </div>
 
       {/* Footer, when needed */}
