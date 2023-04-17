@@ -8,18 +8,19 @@ export const projectCards: ProjectCardsProps[] = [
     color: "blue",
     secure: false,
   },
-  {
-    href: "/secret-santa",
-    label: "Secret Santa",
-    description: "Secret Santa draw",
-    color: "blue",
-    secure: true,
-  },
+
   {
     href: "/food-tracker",
     label: "Tracking my food intake",
     description: "Tracking my food intake during the day",
     color: "green",
+    secure: true,
+  },
+  {
+    href: "/secret-santa",
+    label: "Secret Santa",
+    description: "Secret Santa draw",
+    color: "blue",
     secure: true,
   },
 ];

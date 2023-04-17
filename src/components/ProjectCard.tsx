@@ -24,7 +24,7 @@ export const ProjectCard = ({
 
   return (
     <Link
-      className={`mt-6 w-96 rounded-xl border-2 border-cyan-700 p-6 text-left shadow-lg shadow-indigo-500/50 transition hover:scale-[103%] ${colorClasses}`}
+      className={`mt-6 h-36 w-96 rounded-xl border-2 border-cyan-700 p-6 text-left shadow-lg shadow-indigo-500/50 transition hover:scale-[103%] ${colorClasses}`}
       href={href}
     >
       <h3 className="text-2xl font-bold">{label} &rarr;</h3>
