@@ -11,6 +11,11 @@
 ## TODO:
 
     [ ] figure out custom layouts?
+    [ ] add user pic from session
+
+# Food Tracker
+
+# Secret santa
 
 ## Party creation steps
 
