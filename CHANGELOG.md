@@ -1,3 +1,12 @@
+## [1.0.6](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.5...v1.0.6) (2023-04-18)
+
+
+### Bug Fixes
+
+* added seeds ([2b45cf9](https://github.com/AndreyTodorov/secret-santa/commit/2b45cf93bda414f3e7ab851cd399b5eda0c33397))
+* ignore build errors during build ([e558d7f](https://github.com/AndreyTodorov/secret-santa/commit/e558d7ff134eeb0b966b45cf2a58aba360e1dc4f))
+* removed unused form ([10c3e51](https://github.com/AndreyTodorov/secret-santa/commit/10c3e5155d5dbc2e90cd3d8a18ed2e6e17b32ab2))
+
 ## [1.0.5](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.4...v1.0.5) (2023-04-17)
 
 ### Bug Fixes
