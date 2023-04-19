@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.6...v1.1.0) (2023-04-19)
+
+
+### Bug Fixes
+
+* lodash, grouping by date ([126872f](https://github.com/AndreyTodorov/secret-santa/commit/126872fcdfc9ab1e521c1c76865653e1696df1bc))
+* show name and pic in navbar ([a6122fd](https://github.com/AndreyTodorov/secret-santa/commit/a6122fd7faefc92eed886d89915b013cd9fb534b))
+
+
+### Features
+
+* intakes visualisation, time count ([64e0731](https://github.com/AndreyTodorov/secret-santa/commit/64e0731c870a7404dc1ba15bbed37e0de14ad4b3))
+
 ## [1.0.6](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.5...v1.0.6) (2023-04-18)
 
 
