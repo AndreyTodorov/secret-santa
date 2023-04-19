@@ -11,9 +11,17 @@
 ## TODO:
 
     [ ] figure out custom layouts?
-    [ ] add user pic from session
+    [X] add user pic from session
 
 # Food Tracker
+
+    [] get list of intake records
+        [X] BE route to collect the intakes
+    [] component card to show single day intakes
+    [] edit records
+    [] create records from the site
+    [] show basic stats
+    [] show fansy stats
 
 # Secret santa
 

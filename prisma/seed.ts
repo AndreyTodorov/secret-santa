@@ -23,7 +23,7 @@ async function main() {
     });
     console.log(`🌱 seeded user: ${createdUser.name ?? ""}`);
 
-    await insertIntakeEntries(createdUser, 10, prisma);
+    await insertIntakeEntries(createdUser, 11, prisma);
     console.log(`🌱 seeded intakes of user ${createdUser.name ?? ""} `);
   });
 }
