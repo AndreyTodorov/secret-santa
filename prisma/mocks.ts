@@ -19,6 +19,7 @@ const pickRandom = <TData>(array: TData[]) => {
 
 export const users: Prisma.UserCreateInput[] = [
   {
+    id: "clgnypkp70000v76gh6qnlrcj",
     name: "Han Solo",
     email: "han_solo@abv.bg",
     bearerToken: "3MCSzinXV9tPZ4Ls%EY!",
@@ -26,6 +27,7 @@ export const users: Prisma.UserCreateInput[] = [
       "https://i.pinimg.com/564x/6e/52/b6/6e52b6caef4246ab9d8d652d35cbb163.jpg",
   },
   {
+    id: "clgnypkzf0004v76gozb9hqpk",
     name: "Dart Vader",
     email: "vader@abv.bg",
     bearerToken: "#Pr$wt*tF!B8nRVGz8bs%EY!",
@@ -33,6 +35,7 @@ export const users: Prisma.UserCreateInput[] = [
       "https://as2.ftcdn.net/v2/jpg/02/98/94/25/1000_F_298942592_iSd9VSoiLOii6wFLb7mPSMKXpWS7RZIz.jpg",
   },
   {
+    id: "clgnypkzg0006v76gv16f5qa9",
     name: "Andrey",
     email: "andrei_t@abv.bg",
     bearerToken: "jyl6cvq*XtYy&Oq9SofX",
@@ -60,7 +63,7 @@ export const insertIntakeEntries = async (
   daysBehind: number,
   prisma: PrismaClient
 ) => {
-  for (let dayIndex = 1; dayIndex < daysBehind + 1; dayIndex++) {
+  for (let dayIndex = 0; dayIndex < daysBehind + 1; dayIndex++) {
     const today = dayjs();
     const numberOfMeals = getRandomIntInclusive(1, 5);
 

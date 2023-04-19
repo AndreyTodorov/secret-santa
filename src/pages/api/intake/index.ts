@@ -41,7 +41,7 @@ const createIntakeHandler = async (
           ...req.body,
           ownerId: user.id,
         });
-        await caller.intake.createIntake(input);
+        await caller.intake.createIntakeFromShortcut(input);
         res.status(200).json({ status: "ok" });
       } catch (cause) {
         if (cause instanceof TRPCError) {

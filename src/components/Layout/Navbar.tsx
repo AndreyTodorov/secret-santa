@@ -69,11 +69,20 @@ export default function Navbar() {
             {session ? (
               <Menu as="div" className="relative ml-3">
                 <div>
-                  <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                  <Menu.Button className="flex rounded-full bg-gray-800 text-sm hover:ring-2 ">
                     <span className="sr-only">Open user menu</span>
+                    <span
+                      className="rounded-md px-3 py-2
+                        text-sm font-medium text-gray-300"
+                    >
+                      {session.user.name ?? ""}
+                    </span>
                     <img
                       className="h-8 w-8 rounded-full"
-                      src="https://lh3.googleusercontent.com/a/AGNmyxZDSaxRivvFbMMq9IpMqhAKxP2Ibew0dC2XHKWODcI=s96-c-rg-br100"
+                      src={
+                        session.user.image ??
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+                      }
                       alt=""
                     />
                   </Menu.Button>
