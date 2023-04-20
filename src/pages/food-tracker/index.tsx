@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import isToday from "dayjs/plugin/isToday";
 import { groupBy } from "lodash";
-import { Modal } from "@/components/Modal";
+import { Modal } from "@/components/food-intake/Modal";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
@@ -36,14 +36,15 @@ const HomeIntake: NextPage = () => {
             .duration(lastIntakeHour.diff(firstIntakeHour))
             .format("HH:mm");
 
-          // TODO: replace source with icons
           return (
             <div
               key={`${i}-${date}`}
               className="flex flex-col rounded-lg border-2 border-blue-700 bg-teal-300 shadow shadow-indigo-500/50"
             >
               <div className="flex items-center justify-center gap-6 p-3 text-center">
-                <span className="text-lg ">{date}</span>
+                <span className="text-lg">
+                  {currentDate.format("DD.MM.YYYY")}
+                </span>
                 <span className="text-xl ">Window: {windowDiff}</span>
                 {currentDate.isToday() && (
                   <span className="text-xl ">

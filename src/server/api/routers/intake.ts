@@ -3,7 +3,7 @@ import {
   protectedProcedure,
   publicProcedure,
 } from "@/server/api/trpc";
-import { createIntakeSchema } from "@/schemas/intake.schema";
+import { editIntakeSchema, intakeSchema } from "@/schemas/intake.schema";
 import { Prisma } from "@prisma/client";
 
 const defaultIntakeSelect = Prisma.validator<Prisma.IntakeEntrySelect>()({
@@ -15,8 +15,8 @@ const defaultIntakeSelect = Prisma.validator<Prisma.IntakeEntrySelect>()({
 });
 
 export const intakeRouter = createTRPCRouter({
-  createIntakeFromShortcut: publicProcedure
-    .input(createIntakeSchema)
+  createIntakePublic: publicProcedure
+    .input(intakeSchema)
     .mutation(async ({ input, ctx }) => {
       try {
         await ctx.prisma.intakeEntry.create({
@@ -26,6 +26,35 @@ export const intakeRouter = createTRPCRouter({
             description: input.description,
             requestSource: input.requestSource,
             owner: { connect: { id: input.ownerId } },
+          },
+        });
+      } catch (error) {}
+    }),
+  createIntake: protectedProcedure
+    .input(intakeSchema)
+    .mutation(async ({ input, ctx }) => {
+      try {
+        await ctx.prisma.intakeEntry.create({
+          data: {
+            intakeAt: input.intakeAt,
+            amount: input.amount,
+            description: input.description,
+            requestSource: input.requestSource,
+            owner: { connect: { id: input.ownerId } },
+          },
+        });
+      } catch (error) {}
+    }),
+  editIntake: protectedProcedure
+    .input(editIntakeSchema)
+    .mutation(async ({ input, ctx }) => {
+      try {
+        await ctx.prisma.intakeEntry.update({
+          where: {
+            id: input.id,
+          },
+          data: {
+            ...input,
           },
         });
       } catch (error) {}

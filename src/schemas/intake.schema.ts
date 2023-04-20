@@ -1,7 +1,7 @@
 import { Amount, RequestSource } from "@prisma/client";
 import z from "zod";
 
-export const createIntakeSchema = z.object({
+export const intakeSchema = z.object({
   intakeAt: z.string().datetime({ offset: true }),
   description: z.string().optional(),
   requestSource: z.nativeEnum(RequestSource),
@@ -9,4 +9,8 @@ export const createIntakeSchema = z.object({
   ownerId: z.string().cuid(),
 });
 
-export type CreateIntakeInputType = z.TypeOf<typeof createIntakeSchema>;
+export const editIntakeSchema = intakeSchema.extend({
+  id: z.string().cuid(),
+});
+
+export type IntakeInputType = z.TypeOf<typeof intakeSchema>;

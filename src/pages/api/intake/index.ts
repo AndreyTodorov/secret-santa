@@ -3,7 +3,7 @@ import { appRouter } from "@/server/api/root";
 import { createTRPCContext } from "@/server/api/trpc";
 import { TRPCError } from "@trpc/server";
 import { getHTTPStatusCodeFromError } from "@trpc/server/http";
-import { createIntakeSchema } from "@/schemas/intake.schema";
+import { intakeSchema } from "@/schemas/intake.schema";
 import { ZodError } from "zod";
 
 const createIntakeHandler = async (
@@ -37,11 +37,11 @@ const createIntakeHandler = async (
       }
       // Update or create data in your database
       try {
-        const input = createIntakeSchema.parse({
+        const input = intakeSchema.parse({
           ...req.body,
           ownerId: user.id,
         });
-        await caller.intake.createIntakeFromShortcut(input);
+        await caller.intake.createIntakePublic(input);
         res.status(200).json({ status: "ok" });
       } catch (cause) {
         if (cause instanceof TRPCError) {
