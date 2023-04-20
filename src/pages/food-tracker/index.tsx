@@ -4,7 +4,6 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import isToday from "dayjs/plugin/isToday";
 import { groupBy } from "lodash";
-import { log } from "console";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
@@ -24,9 +23,15 @@ const HomeIntake: NextPage = () => {
   });
 
   return (
-    <div className="flex items-center justify-center">
-      {/* // TODO: add intake button */}
-      <div className="flex max-w-7xl flex-col flex-wrap justify-center gap-5 pt-7">
+    <div className="flex flex-col items-center justify-center p-2">
+      <button
+        type="button"
+        className="mt-2 rounded-lg border border-gray-700 bg-blue-500 px-5 py-3 font-bold text-zinc-200 shadow-md shadow-indigo-500/50 hover:bg-blue-600 active:scale-[98%] "
+        onClick={() => console.log("create new")}
+      >
+        <span className="p-3">Add new</span>
+      </button>
+      <div className="flex w-full flex-col justify-center gap-5 pt-7 md:max-w-3xl">
         {Object.entries(groupedIntakes).map(([date, intakes], i) => {
           const firstIntakeHour = dayjs(intakes[intakes.length - 1]?.intakeAt);
           const lastIntakeHour = dayjs(intakes[0]?.intakeAt);
@@ -44,9 +49,9 @@ const HomeIntake: NextPage = () => {
           return (
             <div
               key={`${i}-${date}`}
-              className="flex flex-col rounded-md border-2 border-blue-700 bg-teal-300 shadow"
+              className="flex flex-col rounded-lg border-2 border-blue-700 bg-teal-300 shadow shadow-indigo-500/50"
             >
-              <div className="flex gap-6 pl-4 pt-4">
+              <div className="flex items-center justify-center gap-6 p-3 text-center">
                 <span className="text-lg ">{date}</span>
                 <span className="text-xl ">Window: {windowDiff}</span>
                 {currentDate.isToday() && (
@@ -59,17 +64,17 @@ const HomeIntake: NextPage = () => {
                 )}
               </div>
 
-              <div className="flex gap-2 p-2">
+              <div className="flex flex-col gap-2 overflow-x-auto p-2">
                 {intakes
                   .sort((a, b) => a.intakeAt.getTime() - b.intakeAt.getTime())
                   .map((intake) => {
                     return (
                       <div
                         key={intake.id}
-                        className="flex min-h-[150px] min-w-[200px] flex-col flex-wrap justify-between rounded-md border-2 border-cyan-700 bg-blue-200 p-2 shadow-md shadow-indigo-500/50 transition hover:scale-[103%]"
+                        className="flex items-center justify-between gap-5 rounded-md border-2 border-cyan-700 bg-blue-200 p-2 px-3 shadow-md shadow-indigo-500/50 transition hover:scale-[101%]"
                       >
                         <div className="pb-1 text-center">
-                          <span className="text-lg font-bold">
+                          <span className="pl text-lg font-bold">
                             {dayjs(intake.intakeAt).format("HH:mm")}
                           </span>
                         </div>
@@ -77,7 +82,7 @@ const HomeIntake: NextPage = () => {
                         <span>{intake.description}</span>
 
                         <div>
-                          <div className="flex justify-between pt-3">
+                          <div className="flex flex-col justify-between">
                             <span>{intake.amount}</span>
                             <span>{intake.requestSource}</span>
                           </div>
