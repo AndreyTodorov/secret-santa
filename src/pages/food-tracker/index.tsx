@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import isToday from "dayjs/plugin/isToday";
 import { groupBy } from "lodash";
+import { Modal } from "@/components/Modal";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
@@ -23,14 +24,8 @@ const HomeIntake: NextPage = () => {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center p-2">
-      <button
-        type="button"
-        className="mt-2 rounded-lg border border-gray-700 bg-blue-500 px-5 py-3 font-bold text-zinc-200 shadow-md shadow-indigo-500/50 hover:bg-blue-600 active:scale-[98%] "
-        onClick={() => console.log("create new")}
-      >
-        <span className="p-3">Add new</span>
-      </button>
+    <div className="flex flex-col items-center justify-center p-2 ">
+      <Modal buttonName="Add new" title="Add new Intake" />
       <div className="flex w-full flex-col justify-center gap-5 pt-7 md:max-w-3xl">
         {Object.entries(groupedIntakes).map(([date, intakes], i) => {
           const firstIntakeHour = dayjs(intakes[intakes.length - 1]?.intakeAt);
@@ -69,12 +64,9 @@ const HomeIntake: NextPage = () => {
                         key={intake.id}
                         className="group relative flex items-center justify-between gap-5 rounded-md border-2 border-cyan-600 bg-blue-200 p-2 px-3 shadow-md shadow-indigo-500/50 transition hover:scale-[101%]"
                       >
-                        <button
-                          type="button"
-                          className="absolute right-1 hidden h-fit rounded-lg border border-gray-700 bg-blue-500 p-3 text-zinc-200 shadow-md shadow-indigo-500/50 group-hover:block"
-                        >
-                          <span className="p-3 text-lg">Edit</span>
-                        </button>
+                        <div className="absolute right-1 hidden h-fit group-hover:block">
+                          <Modal buttonName="Edit" title="Edit Intake" />
+                        </div>
                         <div className="pb-1 text-center">
                           <span className="pl text-lg font-bold">
                             {dayjs(intake.intakeAt).format("HH:mm")}
