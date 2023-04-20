@@ -41,10 +41,6 @@ const HomeIntake: NextPage = () => {
             .duration(lastIntakeHour.diff(firstIntakeHour))
             .format("HH:mm");
 
-          // TODO: add edit button
-
-          //TODO: TEXT to expand or show popup on hovers
-
           // TODO: replace source with icons
           return (
             <div
@@ -71,8 +67,14 @@ const HomeIntake: NextPage = () => {
                     return (
                       <div
                         key={intake.id}
-                        className="flex items-center justify-between gap-5 rounded-md border-2 border-cyan-700 bg-blue-200 p-2 px-3 shadow-md shadow-indigo-500/50 transition hover:scale-[101%]"
+                        className="group relative flex items-center justify-between gap-5 rounded-md border-2 border-cyan-600 bg-blue-200 p-2 px-3 shadow-md shadow-indigo-500/50 transition hover:scale-[101%]"
                       >
+                        <button
+                          type="button"
+                          className="absolute right-1 hidden h-fit rounded-lg border border-gray-700 bg-blue-500 p-3 text-zinc-200 shadow-md shadow-indigo-500/50 group-hover:block"
+                        >
+                          <span className="p-3 text-lg">Edit</span>
+                        </button>
                         <div className="pb-1 text-center">
                           <span className="pl text-lg font-bold">
                             {dayjs(intake.intakeAt).format("HH:mm")}
