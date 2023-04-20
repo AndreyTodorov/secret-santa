@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.0...v1.1.1) (2023-04-20)
+
+
+### Bug Fixes
+
+* better mobile ui ([9dc35ad](https://github.com/AndreyTodorov/secret-santa/commit/9dc35ad43a959348049ae391f838d18eb87fdea7))
+
 # [1.1.0](https://github.com/AndreyTodorov/secret-santa/compare/v1.0.6...v1.1.0) (2023-04-19)
 
 ### Bug Fixes
