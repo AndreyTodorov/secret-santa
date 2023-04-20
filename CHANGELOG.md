@@ -1,3 +1,12 @@
+## [1.1.2](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.1...v1.1.2) (2023-04-20)
+
+
+### Bug Fixes
+
+* added buttons ([1c656aa](https://github.com/AndreyTodorov/secret-santa/commit/1c656aa050932edb9e2c7b9ec81f58c7c4264c5e))
+* added endpoints for editing and creating(from web) ([b351930](https://github.com/AndreyTodorov/secret-santa/commit/b351930721574fa700d35d246d2480580fc525ef))
+* added modal ([dac0425](https://github.com/AndreyTodorov/secret-santa/commit/dac0425a76977564ec13b9f7ebd9a859223bc60c))
+
 ## [1.1.1](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.0...v1.1.1) (2023-04-20)
 
 ### Bug Fixes
