@@ -15,9 +15,9 @@
 
 # Food Tracker
 
-    [] get list of intake records
+    [X] get list of intake records
         [X] BE route to collect the intakes
-    [] component card to show single day intakes
+    [X] component card to show single day intakes
     [] edit records
     [] create records from the site
     [] show basic stats
