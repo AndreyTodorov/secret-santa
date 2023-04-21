@@ -114,7 +114,7 @@ model ParticipantGroup {
     @@index([creatorId])
 }
 
-// ======== FOOD TRACKER ======== Start
+// ======== FASTING TRACKER ======== Start
 model IntakeEntry {
     id            String        @id @default(cuid())
     intakeAt      DateTime
@@ -146,4 +146,4 @@ enum Amount {
     Large
 }
 
-// ======== FOOD TRACKER ======== End
+// ======== FASTING TRACKER ======== End

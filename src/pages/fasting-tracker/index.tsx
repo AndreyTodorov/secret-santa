@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import isToday from "dayjs/plugin/isToday";
 import { groupBy } from "lodash";
-import { Modal } from "@/components/food-intake/Modal";
+import { Modal } from "@/components/fasting-tracker/Modal";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
