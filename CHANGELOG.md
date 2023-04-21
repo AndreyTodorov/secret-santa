@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.3...v1.1.4) (2023-04-21)
+
+
+### Bug Fixes
+
+* cleanup ([65b1f90](https://github.com/AndreyTodorov/secret-santa/commit/65b1f9049994d764554d34d694c789565d12f26d))
+
 ## [1.1.3](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.2...v1.1.3) (2023-04-21)
 
 ### Bug Fixes
