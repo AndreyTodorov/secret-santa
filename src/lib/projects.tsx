@@ -11,7 +11,7 @@ export const projectCards: ProjectCardsProps[] = [
 
   {
     href: "/fasting-tracker",
-    label: "Tracking my Intermittent fasting",
+    label: "Tracking my fasting",
     description: "Tracking my food intake during the day",
     color: "green",
     secure: true,
