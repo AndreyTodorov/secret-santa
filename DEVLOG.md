@@ -13,13 +13,14 @@
     [ ] figure out custom layouts?
     [X] add user pic from session
 
-# Food Tracker
+# Fasting Tracker
 
     [X] get list of intake records
         [X] BE route to collect the intakes
     [X] component card to show single day intakes
     [] edit records
     [] create records from the site
+    [] make web take advantage of the space: make the cards smaller and horizontal layout
     [] show basic stats
     [] show fansy stats
 
