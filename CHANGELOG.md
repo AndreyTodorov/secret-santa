@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.2...v1.1.3) (2023-04-21)
+
+
+### Bug Fixes
+
+* food to fasting ([6aab7a7](https://github.com/AndreyTodorov/secret-santa/commit/6aab7a7fa7f3faa69753a968adce6c82e157591f))
+
 ## [1.1.2](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.1...v1.1.2) (2023-04-20)
 
 ### Bug Fixes
