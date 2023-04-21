@@ -1,12 +1,15 @@
+import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { IntakeForm } from "./IntakeForm";
 
 interface ModalProps {
   buttonName: string;
   title: string;
+  intake?: UpsertIntakeInputType;
 }
 
-export const Modal = ({ buttonName, title }: ModalProps) => {
+export const Modal = ({ buttonName, title, intake }: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -65,7 +68,9 @@ export const Modal = ({ buttonName, title }: ModalProps) => {
                   >
                     {title}
                   </Dialog.Title>
-                  <div className="mt-2">Some form will live here</div>
+                  <div className="mt-2">
+                    <IntakeForm intake={intake} onClose={closeModal} />
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

@@ -3,14 +3,20 @@ import z from "zod";
 
 export const intakeSchema = z.object({
   intakeAt: z.string().datetime({ offset: true }),
-  description: z.string().optional(),
+  description: z.string().trim().nullable(),
   requestSource: z.nativeEnum(RequestSource),
   amount: z.nativeEnum(Amount),
   ownerId: z.string().cuid(),
 });
 
 export const editIntakeSchema = intakeSchema.extend({
+  id: z.string().cuid().optional(),
+  ownerId: z.string().cuid().optional(),
+});
+
+export const deleteIntakeSchema = z.object({
   id: z.string().cuid(),
 });
 
 export type IntakeInputType = z.TypeOf<typeof intakeSchema>;
+export type UpsertIntakeInputType = z.TypeOf<typeof editIntakeSchema>;

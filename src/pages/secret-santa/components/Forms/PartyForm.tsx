@@ -34,6 +34,9 @@ const PartyForm = () => {
   );
 
   const onSubmit: SubmitHandler<AddPartyInputType> = async (data) => {
+    console.log({ data });
+    return;
+
     await toast.promise(
       mutateAsync(data),
       {
@@ -56,7 +59,6 @@ const PartyForm = () => {
   };
   return (
     <div className="p-3">
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex gap-3">
           <div className="py-2">
