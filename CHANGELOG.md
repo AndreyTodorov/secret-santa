@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.6...v1.1.7) (2023-04-22)
+
+
+### Bug Fixes
+
+* ordering of dates, constants ([fbc9a28](https://github.com/AndreyTodorov/secret-santa/commit/fbc9a28f9a72a18999573cef5a40e259e195e9be))
+
 ## [1.1.6](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.5...v1.1.6) (2023-04-22)
 
 ### Bug Fixes
