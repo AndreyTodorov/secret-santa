@@ -1,3 +1,4 @@
+import { FORM_FORMAT } from "@/pages/fasting-tracker";
 import {
   type UpsertIntakeInputType,
   editIntakeSchema,
@@ -15,6 +16,7 @@ interface IntakeFormProps {
 }
 
 export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
+  const isEditing = !!intake;
   const utils = api.useContext();
   const {
     register,
@@ -23,7 +25,7 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
   } = useForm<UpsertIntakeInputType>({
     resolver: zodResolver(editIntakeSchema),
     defaultValues: intake ?? {
-      intakeAt: dayjs().format("YYYY-MM-DDTHH:mm"),
+      intakeAt: dayjs().format(FORM_FORMAT),
       requestSource: RequestSource.Web,
       amount: Amount.Medium,
       description: "",
@@ -84,20 +86,21 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
     onClose();
   };
 
+  const dirty = isEditing ? !isDirty : false;
   // TODO: use Translations
   return (
     <div className="p-3">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="py-2">
           <label htmlFor="intakeAt" className="px-1 text-xs font-semibold">
-            Intake @
+            Intake time
           </label>
           <div className="flex flex-col">
             <input
               className="form-input rounded-lg text-gray-600"
               {...register("intakeAt", {
                 setValueAs(value: string) {
-                  return dayjs(value).format();
+                  return dayjs(value).format(); // from FORM_FORMAT to ISO
                 },
               })}
               type="datetime-local"
@@ -149,10 +152,10 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
           <button
             className="rounded-md border border-transparent bg-blue-200 py-2 px-3 text-lg font-medium text-blue-900 
             hover:bg-blue-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 active:scale-[98%]"
-            disabled={isSubmitting || !isValid || !isDirty}
+            disabled={isSubmitting || !isValid || dirty}
             type="submit"
           >
-            {intake ? "Edit" : "Add"}
+            {isEditing ? "Edit" : "Add"}
           </button>
           {intake && (
             <button

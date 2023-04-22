@@ -8,6 +8,11 @@ import { Modal } from "@/components/fasting-tracker/Modal";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
+const TECH_FORMAT = "YYYY-MM-DD";
+const DATE_FORMAT = "DD.MM.YYYY";
+const HOUR_FORMAT = "HH:mm";
+export const FORM_FORMAT = `${TECH_FORMAT}T${HOUR_FORMAT}`;
+
 const HomeIntake: NextPage = () => {
   const {
     data: fetchedIntakes,
@@ -20,7 +25,7 @@ const HomeIntake: NextPage = () => {
   if (!fetchedIntakes) return <div>You have no intakes</div>;
 
   const groupedIntakes = groupBy(fetchedIntakes, (intake) => {
-    return intake.intakeAt.toISOString().split("T")[0];
+    return dayjs(intake.intakeAt).format(TECH_FORMAT);
   });
 
   return (
@@ -30,11 +35,11 @@ const HomeIntake: NextPage = () => {
         {Object.entries(groupedIntakes).map(([date, intakes], i) => {
           const firstIntakeHour = dayjs(intakes[intakes.length - 1]?.intakeAt);
           const lastIntakeHour = dayjs(intakes[0]?.intakeAt);
-          const currentDate = dayjs(date);
+          const currentDate = dayjs(date, TECH_FORMAT);
 
           const windowDiff = dayjs
             .duration(lastIntakeHour.diff(firstIntakeHour))
-            .format("HH:mm");
+            .format(HOUR_FORMAT);
 
           return (
             <div
@@ -43,7 +48,7 @@ const HomeIntake: NextPage = () => {
             >
               <div className="flex items-center justify-center gap-6 p-3 text-center">
                 <span className="text-lg">
-                  {currentDate.format("DD.MM.YYYY")}
+                  {currentDate.format(DATE_FORMAT)}
                 </span>
                 <span className="text-xl ">Window: {windowDiff}</span>
                 {currentDate.isToday() && (
@@ -51,7 +56,7 @@ const HomeIntake: NextPage = () => {
                     From start:{" "}
                     {dayjs
                       .duration(dayjs().diff(firstIntakeHour))
-                      .format("HH:mm")}
+                      .format(HOUR_FORMAT)}
                   </span>
                 )}
               </div>
@@ -72,14 +77,14 @@ const HomeIntake: NextPage = () => {
                             intake={{
                               ...intake,
                               intakeAt: dayjs(intake.intakeAt).format(
-                                "YYYY-MM-DDTHH:mm"
+                                FORM_FORMAT
                               ),
                             }}
                           />
                         </div>
                         <div className="pb-1 text-center">
                           <span className="pl text-lg font-bold">
-                            {dayjs(intake.intakeAt).format("HH:mm")}
+                            {dayjs(intake.intakeAt).format(HOUR_FORMAT)}
                           </span>
                         </div>
 
