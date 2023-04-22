@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.7...v1.1.8) (2023-04-22)
+
+
+### Bug Fixes
+
+* cache on release workflow ([771706c](https://github.com/AndreyTodorov/secret-santa/commit/771706cbbe66d71069a112443af8babaac30c9d1))
+
 ## [1.1.7](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.6...v1.1.7) (2023-04-22)
 
 
