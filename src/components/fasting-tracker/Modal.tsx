@@ -25,7 +25,7 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
 
   const utils = api.useContext();
   const { mutateAsync: deleteIntake } = api.intake.deleteIntake.useMutation({
-    onSuccess: () => utils.intake.getWeeklyIntakes.invalidate(),
+    onSuccess: () => utils.intake.getIntakes.invalidate(),
   });
 
   const handleDelete = async (id: string) => {

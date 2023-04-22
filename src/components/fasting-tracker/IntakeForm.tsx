@@ -34,7 +34,8 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
   });
 
   const { mutateAsync: upsertIntake } = api.intake.upsertIntake.useMutation({
-    onSuccess: () => utils.intake.getWeeklyIntakes.invalidate(),
+    onSuccess: () => utils.intake.getPaginatedIntakes.invalidate(),
+    // onSuccess: () => utils.intake.getIntakes.invalidate(),
   });
 
   const onSubmit: SubmitHandler<UpsertIntakeInputType> = async (data) => {
