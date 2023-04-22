@@ -35,7 +35,10 @@ jobs:
       - name: Prettier check
         run: yarn prettier:check
 
-      - name: Lint errors
+      - name: Lint Fix
+        run: yarn lint:fix
+
+      - name: Lint check
         run: yarn lint:check
 
       - name: Typescript errors
