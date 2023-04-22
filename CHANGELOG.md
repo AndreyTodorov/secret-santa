@@ -1,23 +1,20 @@
 ## [1.1.6](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.5...v1.1.6) (2023-04-22)
 
-
 ### Bug Fixes
 
-* checking the new Prisma JSON protocol ([6e22b97](https://github.com/AndreyTodorov/secret-santa/commit/6e22b978f68bbfcb6a2bdf9a43b43196bea58839))
+- checking the new Prisma JSON protocol ([6e22b97](https://github.com/AndreyTodorov/secret-santa/commit/6e22b978f68bbfcb6a2bdf9a43b43196bea58839))
 
 ## [1.1.5](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.4...v1.1.5) (2023-04-22)
 
-
 ### Bug Fixes
 
-* form for creating, updating and deleting ([2464221](https://github.com/AndreyTodorov/secret-santa/commit/2464221eb0c44828f5951f5688928eb0d683bb54))
+- form for creating, updating and deleting ([2464221](https://github.com/AndreyTodorov/secret-santa/commit/2464221eb0c44828f5951f5688928eb0d683bb54))
 
 ## [1.1.4](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.3...v1.1.4) (2023-04-21)
 
-
 ### Bug Fixes
 
-* cleanup ([65b1f90](https://github.com/AndreyTodorov/secret-santa/commit/65b1f9049994d764554d34d694c789565d12f26d))
+- cleanup ([65b1f90](https://github.com/AndreyTodorov/secret-santa/commit/65b1f9049994d764554d34d694c789565d12f26d))
 
 ## [1.1.3](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.2...v1.1.3) (2023-04-21)
 
