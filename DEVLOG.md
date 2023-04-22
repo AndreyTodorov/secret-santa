@@ -12,10 +12,12 @@
 
     [ ] figure out custom layouts?
     [X] add user pic from session
+    [] implement caching the deps on github actions
 
 # Fasting Tracker
 
     [X] get list of intake records
+        [] implement pagination
         [X] BE route to collect the intakes
     [X] component card to show single day intakes
     [] edit records

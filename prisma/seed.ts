@@ -8,6 +8,7 @@ import { insertIntakeEntries, userDefaultSelect, users } from "./mocks";
 
 const prisma = new PrismaClient();
 
+const DAYS = 23;
 async function main() {
   // delete existing data
   await prisma.intakeEntry.deleteMany();
@@ -23,7 +24,7 @@ async function main() {
     });
     console.log(`🌱 seeded user: ${createdUser.name ?? ""}`);
 
-    await insertIntakeEntries(createdUser, 11, prisma);
+    await insertIntakeEntries(createdUser, DAYS, prisma);
     console.log(`🌱 seeded intakes of user ${createdUser.name ?? ""} `);
   });
 }

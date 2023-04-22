@@ -3,7 +3,11 @@ import {
   protectedProcedure,
   publicProcedure,
 } from "@/server/api/trpc";
-import { editIntakeSchema, intakeSchema } from "@/schemas/intake.schema";
+import {
+  deleteIntakeSchema,
+  editIntakeSchema,
+  intakeSchema,
+} from "@/schemas/intake.schema";
 import { Prisma } from "@prisma/client";
 
 const defaultIntakeSelect = Prisma.validator<Prisma.IntakeEntrySelect>()({
@@ -12,6 +16,7 @@ const defaultIntakeSelect = Prisma.validator<Prisma.IntakeEntrySelect>()({
   amount: true,
   description: true,
   requestSource: true,
+  ownerId: true,
 });
 
 export const intakeRouter = createTRPCRouter({
@@ -30,31 +35,30 @@ export const intakeRouter = createTRPCRouter({
         });
       } catch (error) {}
     }),
-  createIntake: protectedProcedure
-    .input(intakeSchema)
+  deleteIntake: protectedProcedure
+    .input(deleteIntakeSchema)
     .mutation(async ({ input, ctx }) => {
       try {
-        await ctx.prisma.intakeEntry.create({
-          data: {
+        await ctx.prisma.intakeEntry.delete({
+          where: { id: input.id },
+        });
+      } catch (error) {}
+    }),
+  upsertIntake: protectedProcedure
+    .input(editIntakeSchema)
+    .mutation(async ({ input, ctx }) => {
+      try {
+        await ctx.prisma.intakeEntry.upsert({
+          where: {
+            id: input.id ?? "tempIntakeId",
+          },
+          update: input,
+          create: {
             intakeAt: input.intakeAt,
             amount: input.amount,
             description: input.description,
             requestSource: input.requestSource,
-            owner: { connect: { id: input.ownerId } },
-          },
-        });
-      } catch (error) {}
-    }),
-  editIntake: protectedProcedure
-    .input(editIntakeSchema)
-    .mutation(async ({ input, ctx }) => {
-      try {
-        await ctx.prisma.intakeEntry.update({
-          where: {
-            id: input.id,
-          },
-          data: {
-            ...input,
+            owner: { connect: { id: ctx.session.user.id } },
           },
         });
       } catch (error) {}
