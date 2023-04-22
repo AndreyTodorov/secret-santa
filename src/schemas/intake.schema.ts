@@ -19,5 +19,10 @@ export const deleteIntakeSchema = z.object({
   id: z.string().cuid(),
 });
 
+export const paginationSchema = z.object({
+  limit: z.number().min(1).max(100).nullish(),
+  cursor: z.string().nullish(), // <-- "cursor" needs to exist, but can be any type
+});
+
 export type IntakeInputType = z.TypeOf<typeof intakeSchema>;
 export type UpsertIntakeInputType = z.TypeOf<typeof editIntakeSchema>;

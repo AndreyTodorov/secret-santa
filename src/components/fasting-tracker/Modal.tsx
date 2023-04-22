@@ -25,7 +25,7 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
 
   const utils = api.useContext();
   const { mutateAsync: deleteIntake } = api.intake.deleteIntake.useMutation({
-    onSuccess: () => utils.intake.getWeeklyIntakes.invalidate(),
+    onSuccess: () => utils.intake.getIntakes.invalidate(),
   });
 
   const handleDelete = async (id: string) => {
@@ -92,7 +92,7 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
                 leaveTo="opacity-0 scale-95"
               >
                 {/* The actual dialog panel  */}
-                <Dialog.Panel className="max-w-[500] transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="max-w-[500] transform rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -113,7 +113,7 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
                       )}
                     </div>
                   </Dialog.Title>
-                  <div className="mt-2">
+                  <div>
                     <IntakeForm intake={intake} onClose={closeModal} />
                   </div>
                 </Dialog.Panel>

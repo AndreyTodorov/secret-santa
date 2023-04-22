@@ -34,7 +34,8 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
   });
 
   const { mutateAsync: upsertIntake } = api.intake.upsertIntake.useMutation({
-    onSuccess: () => utils.intake.getWeeklyIntakes.invalidate(),
+    onSuccess: () => utils.intake.getPaginatedIntakes.invalidate(),
+    // onSuccess: () => utils.intake.getIntakes.invalidate(),
   });
 
   const onSubmit: SubmitHandler<UpsertIntakeInputType> = async (data) => {
@@ -64,9 +65,9 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
 
   // TODO: use Translations
   return (
-    <div className="p-3">
+    <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="py-2">
+        <div className="py-1">
           <label htmlFor="intakeAt" className="px-1 text-xs font-semibold">
             Intake time
           </label>

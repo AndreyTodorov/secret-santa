@@ -7,6 +7,7 @@ import {
   deleteIntakeSchema,
   editIntakeSchema,
   intakeSchema,
+  paginationSchema,
 } from "@/schemas/intake.schema";
 import { Prisma } from "@prisma/client";
 
@@ -63,7 +64,7 @@ export const intakeRouter = createTRPCRouter({
         });
       } catch (error) {}
     }),
-  getWeeklyIntakes: protectedProcedure.query(async ({ ctx }) => {
+  getIntakes: protectedProcedure.query(async ({ ctx }) => {
     try {
       return await ctx.prisma.intakeEntry.findMany({
         where: { ownerId: ctx.session?.user?.id, deletedAt: null },
@@ -72,4 +73,40 @@ export const intakeRouter = createTRPCRouter({
       });
     } catch (error) {}
   }),
+  getPaginatedIntakes: protectedProcedure
+    .input(paginationSchema)
+    .query(async ({ input, ctx }) => {
+      const limit = input.limit ?? 20;
+      const { cursor } = input;
+
+      // TODO: should there be a query for days, and not intakes only
+      // ! the limit should be on the days returned
+      // should get intakes between 2 dates, next page will get the next 7 days e.g
+
+      const intakes = await ctx.prisma.intakeEntry.findMany({
+        take: limit + 1, // get an extra item at the end which we'll use as next cursor
+        where: {
+          ownerId: ctx.session?.user?.id,
+          deletedAt: null,
+          // intakeAt: {
+          //   lte: new Date("2023-04-16").toISOString(),
+          //   gte: new Date("2023-04-10").toISOString(),
+          // },
+        },
+        cursor: cursor ? { id: cursor } : undefined,
+        orderBy: {
+          intakeAt: "desc",
+        },
+      });
+
+      let nextCursor: typeof cursor | undefined = undefined;
+      if (intakes.length > limit) {
+        const nextItem = intakes.pop();
+        nextCursor = nextItem?.id;
+      }
+      return {
+        intakes,
+        nextCursor,
+      };
+    }),
 });
