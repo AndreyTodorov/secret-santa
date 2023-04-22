@@ -9,6 +9,7 @@ export const intakeSchema = z.object({
   ownerId: z.string().cuid(),
 });
 
+// should be optional, because when we are creating we have no values
 export const editIntakeSchema = intakeSchema.extend({
   id: z.string().cuid().optional(),
   ownerId: z.string().cuid().optional(),

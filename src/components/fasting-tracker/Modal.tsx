@@ -1,7 +1,10 @@
 import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
+import { api } from "@/utils/api";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { toast } from "react-hot-toast";
 import { IntakeForm } from "./IntakeForm";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 interface ModalProps {
   buttonName: string;
@@ -19,6 +22,34 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
   function openModal() {
     setIsOpen(true);
   }
+
+  const utils = api.useContext();
+  const { mutateAsync: deleteIntake } = api.intake.deleteIntake.useMutation({
+    onSuccess: () => utils.intake.getWeeklyIntakes.invalidate(),
+  });
+
+  const handleDelete = async (id: string) => {
+    await toast.promise(
+      deleteIntake({ id }),
+      {
+        loading: "Deleting...",
+        success: `Successfully deleted`,
+        error: `Error occured while deleting`,
+      },
+      {
+        style: {
+          minWidth: "250px",
+        },
+        success: {
+          duration: 3000,
+        },
+        error: {
+          duration: 3000,
+        },
+      }
+    );
+    closeModal();
+  };
 
   return (
     <>
@@ -66,7 +97,21 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    {title}
+                    <div className="flex items-center justify-between">
+                      <span>{title}</span>
+                      {intake && (
+                        <button
+                          title="delete"
+                          type="button"
+                          className="rounded-md border border-transparent bg-red-200 p-2 text-sm 
+                          font-medium text-red-900 hover:bg-red-300 focus:outline-none focus-visible:ring-2 
+                          focus-visible:ring-red-500 focus-visible:ring-offset-2 active:scale-[98%]"
+                          onClick={() => handleDelete(intake?.id ?? "")}
+                        >
+                          <TrashIcon className="h-4 w-4 text-red-500" />
+                        </button>
+                      )}
+                    </div>
                   </Dialog.Title>
                   <div className="mt-2">
                     <IntakeForm intake={intake} onClose={closeModal} />
