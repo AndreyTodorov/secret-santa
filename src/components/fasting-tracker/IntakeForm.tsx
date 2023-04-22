@@ -64,9 +64,9 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
 
   // TODO: use Translations
   return (
-    <div className="p-3">
+    <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="py-2">
+        <div className="py-1">
           <label htmlFor="intakeAt" className="px-1 text-xs font-semibold">
             Intake time
           </label>
