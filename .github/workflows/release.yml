@@ -19,13 +19,16 @@ jobs:
         with:
           node-version: "18.16.0"
 
-      - name: Get node_modules cache
-        uses: actions/cache@v3
-        id: node_modules
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}-18.16.0
+      #  Workflow runs also cannot restore caches created for different tag names.
+      # - name: Get node_modules cache
+      #   uses: actions/cache@v3
+      #   id: node_modules
+      #   env:
+      #     cache-name: node-modules
+      #   with:
+      #     path: |
+      #       **/node_modules
+      #     key: ${{ runner.os }}-18.16.0-${{ env.cache-name }}-main-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
         run: yarn add semantic-release @semantic-release/changelog @semantic-release/commit-analyzer @semantic-release/git @semantic-release/release-notes-generator @semantic-release/github

@@ -61,7 +61,6 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
   };
 
   const dirty = isEditing ? !isDirty : false;
-  console.log({ formErrors, isValid, isSubmitting, isDirty, dirty });
 
   // TODO: use Translations
   return (

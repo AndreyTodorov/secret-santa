@@ -16,13 +16,16 @@ jobs:
         with:
           node-version: "18.16.0"
 
-      - name: Get node_modules cache
-        uses: actions/cache@v3
-        id: node_modules
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}-18.16.0
+      #  When a cache is created by a workflow run triggered on a pull request, the cache is created for the merge ref (refs/pull/.../merge). Because of this, the cache will have a limited scope and can only be restored by re-runs of the pull request.
+      # - name: Get node_modules cache
+      #   uses: actions/cache@v3
+      #   id: node_modules
+      #   env:
+      #     cache-name: node-modules
+      #   with:
+      #     path: |
+      #       **/node_modules
+      #     key: ${{ runner.os }}-18.16.0-${{ env.cache-name }}-main-${{ hashFiles('**/yarn.lock') }}
 
       - run: yarn install
 
@@ -32,7 +35,10 @@ jobs:
       - name: Prettier check
         run: yarn prettier:check
 
-      - name: Lint errors
+      - name: Lint Fix
+        run: yarn lint:fix
+
+      - name: Lint check
         run: yarn lint:check
 
       - name: Typescript errors

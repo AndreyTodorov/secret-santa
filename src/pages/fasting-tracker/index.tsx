@@ -29,8 +29,6 @@ const HomeIntake: NextPage = () => {
     return dayjs(intake.intakeAt).format(TECH_FORMAT);
   });
 
-  console.log({ groupedIntakes, fetchedIntakes });
-
   return (
     <div className="flex flex-col items-center justify-center p-2 ">
       <Modal buttonName="Add new" title="Add new Intake" />

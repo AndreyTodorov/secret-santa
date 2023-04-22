@@ -13,7 +13,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
-    "pre-commit-check": "yarn prettier:fix && yarn prettier:check && yarn lint:check && yarn typecheck",
+    "pre-check": "npx lint-staged && yarn typecheck",
     "prepare": "husky install",
     "db:connect": "pscale connect playground dev --port 3309",
     "studio": "npx prisma studio",
@@ -82,7 +82,9 @@
   "lint-staged": {
     "src/**/*": [
       "yarn prettier:fix",
-      "yarn prettier:check"
+      "yarn prettier:check",
+      "yarn lint:fix",
+      "yarn lint:check"
     ]
   },
   "ct3aMetadata": {
