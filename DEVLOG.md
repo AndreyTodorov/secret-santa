@@ -12,7 +12,7 @@
 
     [ ] figure out custom layouts?
     [X] add user pic from session
-    [] implement caching the deps on github actions
+    [X] implement caching the deps on github actions
 
 # Fasting Tracker
 
@@ -20,8 +20,8 @@
         [] implement pagination
         [X] BE route to collect the intakes
     [X] component card to show single day intakes
-    [] edit records
-    [] create records from the site
+    [X] edit records
+    [X] create records from the site
     [] make web take advantage of the space: make the cards smaller and horizontal layout
     [] show basic stats
     [] show fansy stats

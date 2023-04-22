@@ -36,40 +36,14 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
   const { mutateAsync: upsertIntake } = api.intake.upsertIntake.useMutation({
     onSuccess: () => utils.intake.getWeeklyIntakes.invalidate(),
   });
-  const { mutateAsync: deleteIntake } = api.intake.deleteIntake.useMutation({
-    onSuccess: () => utils.intake.getWeeklyIntakes.invalidate(),
-  });
 
   const onSubmit: SubmitHandler<UpsertIntakeInputType> = async (data) => {
     await toast.promise(
       upsertIntake(data),
       {
         loading: intake ? "Creating..." : "Updating...",
-        success: `Successfully ${intake ? "updated" : "created"}`,
-        error: `Error occured while ${intake ? "updating" : "creating"}`,
-      },
-      {
-        style: {
-          minWidth: "250px",
-        },
-        success: {
-          duration: 3000,
-        },
-        error: {
-          duration: 3000,
-        },
-      }
-    );
-    onClose();
-  };
-
-  const handleDelete = async (id: string) => {
-    await toast.promise(
-      deleteIntake({ id }),
-      {
-        loading: "Deleting...",
-        success: `Successfully deleted`,
-        error: `Error occured while deleting`,
+        success: `Successfully ${intake ? "updated" : "created"} 🎉`,
+        error: `Error occured while ${intake ? "updating" : "creating"} 😬`,
       },
       {
         style: {
@@ -87,6 +61,8 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
   };
 
   const dirty = isEditing ? !isDirty : false;
+  console.log({ formErrors, isValid, isSubmitting, isDirty, dirty });
+
   // TODO: use Translations
   return (
     <div className="p-3">
@@ -148,26 +124,17 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
           type="hidden"
         />
 
-        <div className="flex justify-between">
-          <button
-            className="rounded-md border border-transparent bg-blue-200 py-2 px-3 text-lg font-medium text-blue-900 
-            hover:bg-blue-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 active:scale-[98%]"
-            disabled={isSubmitting || !isValid || dirty}
-            type="submit"
-          >
-            {isEditing ? "Edit" : "Add"}
-          </button>
-          {intake && (
-            <button
-              type="button"
-              className="rounded-md border border-transparent bg-red-200 p-2 text-sm font-medium text-red-900 
-            hover:bg-red-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 active:scale-[98%]"
-              onClick={() => handleDelete(intake?.id ?? "")}
-            >
-              Delete
-            </button>
-          )}
-        </div>
+        <button
+          className="w-full rounded-md border border-transparent bg-blue-200 py-1 px-3 text-lg text-blue-900 
+            focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 
+            enabled:hover:bg-blue-300
+            enabled:active:scale-[98%] 
+            disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-70"
+          disabled={isSubmitting || !isValid || dirty}
+          type="submit"
+        >
+          {isEditing ? "Edit" : "Add"}
+        </button>
       </form>
     </div>
   );
