@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.5...v1.1.6) (2023-04-22)
+
+
+### Bug Fixes
+
+* checking the new Prisma JSON protocol ([6e22b97](https://github.com/AndreyTodorov/secret-santa/commit/6e22b978f68bbfcb6a2bdf9a43b43196bea58839))
+
 ## [1.1.5](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.4...v1.1.5) (2023-04-22)
 
 
