@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.8...v1.1.9) (2023-04-22)
+
+
+### Bug Fixes
+
+* **components and ui tweaks:** components and ui tweaks ([4703e50](https://github.com/AndreyTodorov/secret-santa/commit/4703e508be5809653a0ad6869b394834a1f3013d))
+
 ## [1.1.8](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.7...v1.1.8) (2023-04-22)
 
 ### Bug Fixes
