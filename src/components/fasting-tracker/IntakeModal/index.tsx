@@ -1,28 +1,19 @@
 import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
 import { api } from "@/utils/api";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { toast } from "react-hot-toast";
-import { IntakeForm } from "./IntakeForm";
+import { IntakeForm } from "../IntakeForm";
 import { TrashIcon } from "@heroicons/react/24/outline";
 
 interface ModalProps {
-  buttonName: string;
   title: string;
-  intake?: UpsertIntakeInputType;
+  intake?: UpsertIntakeInputType | null;
+  isOpen: boolean;
+  closeModal: () => void;
 }
 
-export const Modal = ({ buttonName, title, intake }: ModalProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
+export const Modal = ({ title, intake, isOpen, closeModal }: ModalProps) => {
   const utils = api.useContext();
   const { mutateAsync: deleteIntake } = api.intake.deleteIntake.useMutation({
     onSuccess: () => utils.intake.getIntakes.invalidate(),
@@ -53,18 +44,6 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
 
   return (
     <>
-      <div>
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-lg border border-gray-700 bg-blue-500 p-3 text-lg text-zinc-200 shadow-md shadow-indigo-500/50 
-          focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 
-          active:scale-[98%]"
-        >
-          <span className="p-3 text-lg">{buttonName}</span>
-        </button>
-      </div>
-
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           {/* The backdrop, rendered as a fixed sibling to the panel container with its own animation */}

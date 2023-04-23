@@ -4,9 +4,12 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import isToday from "dayjs/plugin/isToday";
 import { groupBy } from "lodash";
-import { Modal } from "@/components/fasting-tracker/Modal";
+import { Modal } from "@/components/fasting-tracker/IntakeModal";
 import { SingleDayCard } from "@/components/fasting-tracker/DayCard";
 import ScrollToTop from "@/components/ScrollToTop";
+import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
+import { useState } from "react";
+import { ModalButton } from "@/components/fasting-tracker/IntakeModal/ModalButton";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
@@ -16,6 +19,9 @@ export const HOUR_FORMAT = "HH:mm";
 export const FORM_FORMAT = `${TECH_FORMAT}T${HOUR_FORMAT}`;
 
 const HomeIntake: NextPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedIntake, setSelectedIntake] =
+    useState<UpsertIntakeInputType | null>(null);
   const {
     data: fetchedIntakes,
     fetchNextPage,
@@ -30,6 +36,19 @@ const HomeIntake: NextPage = () => {
     }
   );
 
+  function closeModal() {
+    setIsModalOpen(false);
+    setSelectedIntake(null);
+  }
+
+  // TODO: don't prop drill, use stateManager or use context
+  function openModal(intake: UpsertIntakeInputType | null) {
+    if (intake) {
+      setSelectedIntake(intake);
+    }
+    setIsModalOpen(true);
+  }
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   if (!fetchedIntakes) return <div>You have no intakes</div>;
@@ -43,11 +62,26 @@ const HomeIntake: NextPage = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center p-2">
-      <Modal buttonName="Add new" title="Add new Intake" />
+      <Modal
+        intake={selectedIntake}
+        title="Add new Intake"
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+      />
+      <ModalButton
+        openModal={openModal}
+        intake={selectedIntake}
+        name="Add new"
+      />
       <div className="flex w-full flex-col justify-center gap-5 pt-7 md:max-w-3xl">
         {Object.entries(groupedIntakes).map(([date, intakes], i) => {
           return (
-            <SingleDayCard key={`${i}-${date}`} date={date} intakes={intakes} />
+            <SingleDayCard
+              openModal={openModal}
+              key={`${i}-${date}`}
+              date={date}
+              intakes={intakes}
+            />
           );
         })}
         <div className="flex items-center justify-center">
