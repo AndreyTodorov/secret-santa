@@ -1,4 +1,4 @@
-import PartyForm from "@/pages/secret-santa/components/Forms/PartyForm";
+import PartyForm from "@/components/secret-santa/Forms/PartyForm";
 import { type NextPage } from "next";
 const Home: NextPage = () => {
   return (

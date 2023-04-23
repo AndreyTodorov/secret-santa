@@ -8,7 +8,7 @@ import { insertIntakeEntries, userDefaultSelect, users } from "./mocks";
 
 const prisma = new PrismaClient();
 
-const DAYS = 23;
+const DAYS = 30;
 async function main() {
   // delete existing data
   await prisma.intakeEntry.deleteMany();

@@ -17,11 +17,12 @@
 # Fasting Tracker
 
     [X] get list of intake records
-        [] implement pagination
+        [X] implement pagination
         [X] BE route to collect the intakes
         [X] component card to show single day intakes
         [X] edit records
         [X] create records from the site
+        [] when updating, set the cache entry, don't invalidate
     [] make web take advantage of the space: make the cards smaller and horizontal layout
     [] show basic stats
     [] show fansy stats

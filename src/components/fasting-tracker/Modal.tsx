@@ -57,8 +57,9 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
         <button
           type="button"
           onClick={openModal}
-          className="rounded-lg border border-gray-700 bg-blue-500 p-3 text-lg text-zinc-200 shadow-md 
-          shadow-indigo-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 active:scale-[98%]"
+          className="rounded-lg border border-gray-700 bg-blue-500 p-3 text-lg text-zinc-200 shadow-md shadow-indigo-500/50 
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 
+          active:scale-[98%]"
         >
           <span className="p-3 text-lg">{buttonName}</span>
         </button>
@@ -92,7 +93,7 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
                 leaveTo="opacity-0 scale-95"
               >
                 {/* The actual dialog panel  */}
-                <Dialog.Panel className="max-w-[500] transform rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className=" w-96 max-w-[500] transform rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
