@@ -11,7 +11,7 @@ import { type SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
 interface IntakeFormProps {
-  intake?: UpsertIntakeInputType;
+  intake?: UpsertIntakeInputType | null;
   onClose: () => void;
 }
 

@@ -4,6 +4,7 @@ import {
   HOUR_FORMAT,
   TECH_FORMAT,
 } from "@/pages/fasting-tracker";
+import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
 import { type IntakeEntry } from "@prisma/client";
 import dayjs from "dayjs";
 import { SingleIntake } from "./SingleIntake";
@@ -15,9 +16,10 @@ type RawIntake = Pick<
 interface Props {
   date: string;
   intakes: RawIntake[];
+  openModal: (intake: UpsertIntakeInputType | null) => void;
 }
 
-export const SingleDayCard = ({ date, intakes }: Props) => {
+export const SingleDayCard = ({ date, intakes, openModal }: Props) => {
   const sortedIntakes = intakes.sort(
     (a, b) => a.intakeAt.getTime() - b.intakeAt.getTime()
   );
@@ -53,6 +55,7 @@ export const SingleDayCard = ({ date, intakes }: Props) => {
                 ...intake,
                 intakeAt: dayjs(intake.intakeAt).format(FORM_FORMAT),
               }}
+              openModal={openModal}
             />
           );
         })}

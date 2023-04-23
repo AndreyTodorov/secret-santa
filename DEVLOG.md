@@ -13,7 +13,8 @@
     [ ] figure out custom layouts?
     [X] add user pic from session
     [X] implement caching the deps on github actions
-    [] extract the buttom from the modal
+    [X] extract the buttom from the modal
+    [] use state management for selected intake and openModal
     [] use tailwind ui components
 
 # Fasting Tracker
