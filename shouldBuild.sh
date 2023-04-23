@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "VERCEL_GIT_COMMIT_REF": $VERCEL_GIT_COMMIT_REF
+echo "VERCEL_GIT_COMMIT_MESSAGE": $VERCEL_GIT_COMMIT_MESSAGE
+
 if [[ "$VERCEL_GIT_COMMIT_REF" == "main" && echo "$VERCEL_GIT_COMMIT_MESSAGE" | grep -v "chore(release)" ]] || [[ "$VERCEL_GIT_COMMIT_REF" == "dev" ]] ; then
   # Proceed with the build
     echo "✅ - Build can proceed"
