@@ -1,17 +1,15 @@
 ## [1.1.13](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.12...v1.1.13) (2023-04-23)
 
-
 ### Bug Fixes
 
-* only one modal with many triggers ([2fb757f](https://github.com/AndreyTodorov/secret-santa/commit/2fb757f5d944d861cc9dc762a39760ea1c5511e0))
-* **ui:** new card design ([f1a9933](https://github.com/AndreyTodorov/secret-santa/commit/f1a9933eb10fb5f2dd3950d5b722bc136fd7367b))
+- only one modal with many triggers ([2fb757f](https://github.com/AndreyTodorov/secret-santa/commit/2fb757f5d944d861cc9dc762a39760ea1c5511e0))
+- **ui:** new card design ([f1a9933](https://github.com/AndreyTodorov/secret-santa/commit/f1a9933eb10fb5f2dd3950d5b722bc136fd7367b))
 
 ## [1.1.12](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.11...v1.1.12) (2023-04-23)
 
-
 ### Bug Fixes
 
-* seeds, faker, modal tweak ([c2b10aa](https://github.com/AndreyTodorov/secret-santa/commit/c2b10aa9e6c46ca00e9a2dba21cc074f1a45dce5))
+- seeds, faker, modal tweak ([c2b10aa](https://github.com/AndreyTodorov/secret-santa/commit/c2b10aa9e6c46ca00e9a2dba21cc074f1a45dce5))
 
 ## [1.1.11](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.10...v1.1.11) (2023-04-23)
 

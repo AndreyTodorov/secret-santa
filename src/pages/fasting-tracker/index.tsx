@@ -38,14 +38,11 @@ const HomeIntake: NextPage = () => {
 
   function closeModal() {
     setIsModalOpen(false);
-    setSelectedIntake(null);
   }
 
   // TODO: don't prop drill, use stateManager or use context
   function openModal(intake: UpsertIntakeInputType | null) {
-    if (intake) {
-      setSelectedIntake(intake);
-    }
+    setSelectedIntake(intake);
     setIsModalOpen(true);
   }
 
@@ -68,11 +65,7 @@ const HomeIntake: NextPage = () => {
         isOpen={isModalOpen}
         closeModal={closeModal}
       />
-      <ModalButton
-        openModal={openModal}
-        intake={selectedIntake}
-        name="Add new"
-      />
+      <ModalButton openModal={openModal} intake={null} name="Add new" />
       <div className="flex w-full flex-col justify-center gap-5 pt-7 md:max-w-3xl">
         {Object.entries(groupedIntakes).map(([date, intakes], i) => {
           return (
