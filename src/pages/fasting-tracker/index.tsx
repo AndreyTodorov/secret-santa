@@ -6,7 +6,7 @@ import isToday from "dayjs/plugin/isToday";
 import { groupBy } from "lodash";
 import { Modal } from "@/components/fasting-tracker/Modal";
 import { SingleDayCard } from "@/components/fasting-tracker/DayCard";
-import { type IntakeEntry } from "@prisma/client";
+import ScrollToTop from "@/components/ScrollToTop";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
@@ -34,10 +34,7 @@ const HomeIntake: NextPage = () => {
   if (error) return <div>{error.message}</div>;
   if (!fetchedIntakes) return <div>You have no intakes</div>;
 
-  const allIntakes: IntakeEntry[] = [];
-  fetchedIntakes?.pages.forEach(({ intakes }) => {
-    allIntakes.push(...intakes);
-  });
+  const allIntakes = fetchedIntakes?.pages.flatMap((page) => page.intakes);
 
   // Group by Date
   const groupedIntakes = groupBy(allIntakes, (intake) => {
@@ -45,7 +42,7 @@ const HomeIntake: NextPage = () => {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center p-2 ">
+    <div className="relative flex flex-col items-center justify-center p-2">
       <Modal buttonName="Add new" title="Add new Intake" />
       <div className="flex w-full flex-col justify-center gap-5 pt-7 md:max-w-3xl">
         {Object.entries(groupedIntakes).map(([date, intakes], i) => {
@@ -53,14 +50,11 @@ const HomeIntake: NextPage = () => {
             <SingleDayCard key={`${i}-${date}`} date={date} intakes={intakes} />
           );
         })}
-        <div className="flex">
+        <div className="flex items-center justify-center">
           {hasNextPage && (
             <button
-              className="w-full rounded-md border border-transparent bg-blue-200 py-1 px-3 text-lg text-blue-900 
-              focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 
-              enabled:hover:bg-blue-300
-              enabled:active:scale-[98%] 
-              disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-70"
+              className="w-full px-3 pb-3 text-center text-lg text-blue-900
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
               type="button"
               onClick={() => fetchNextPage()}
             >
@@ -69,6 +63,7 @@ const HomeIntake: NextPage = () => {
           )}
         </div>
       </div>
+      <ScrollToTop />
     </div>
   );
 };
