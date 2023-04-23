@@ -1,3 +1,10 @@
+## [1.1.12](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.11...v1.1.12) (2023-04-23)
+
+
+### Bug Fixes
+
+* seeds, faker, modal tweak ([c2b10aa](https://github.com/AndreyTodorov/secret-santa/commit/c2b10aa9e6c46ca00e9a2dba21cc074f1a45dce5))
+
 ## [1.1.11](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.10...v1.1.11) (2023-04-23)
 
 ### Bug Fixes
