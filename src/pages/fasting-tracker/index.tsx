@@ -8,7 +8,7 @@ import { Modal } from "@/components/fasting-tracker/IntakeModal";
 import { SingleDayCard } from "@/components/fasting-tracker/DayCard";
 import ScrollToTop from "@/components/ScrollToTop";
 import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ModalButton } from "@/components/fasting-tracker/IntakeModal/ModalButton";
 dayjs.extend(duration);
 dayjs.extend(isToday);
