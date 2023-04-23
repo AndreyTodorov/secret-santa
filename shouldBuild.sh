@@ -1,9 +1,10 @@
 #!/bin/bash
 
+substring="chore(release)"
 echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 echo "VERCEL_GIT_COMMIT_MESSAGE: $VERCEL_GIT_COMMIT_MESSAGE"
 
-if [[ "$VERCEL_GIT_COMMIT_REF" == "main" && echo "$VERCEL_GIT_COMMIT_MESSAGE" | grep -v "chore(release)"  ]] ; then
+if [[ "$VERCEL_GIT_COMMIT_REF" == "main" ]] && [[ "$VERCEL_GIT_COMMIT_MESSAGE" == *"$substring"* ]] ; then
   # Proceed with the build
   echo "✅ - Building main can proceed"
   exit 1;
