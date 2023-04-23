@@ -53,6 +53,7 @@ export const Modal = ({ buttonName, title, intake }: ModalProps) => {
 
   return (
     <>
+      {/* TODO: extract the button */}
       <div>
         <button
           type="button"

@@ -13,6 +13,8 @@
     [ ] figure out custom layouts?
     [X] add user pic from session
     [X] implement caching the deps on github actions
+    [] extract the buttom from the modal
+    [] use tailwind ui components
 
 # Fasting Tracker
 
@@ -23,6 +25,7 @@
         [X] edit records
         [X] create records from the site
         [] when updating, set the cache entry, don't invalidate
+
     [] make web take advantage of the space: make the cards smaller and horizontal layout
     [] show basic stats
     [] show fansy stats
