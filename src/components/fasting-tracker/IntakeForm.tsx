@@ -111,6 +111,7 @@ export const IntakeForm = ({ intake, onClose }: IntakeFormProps) => {
           </label>
           <div className="flex flex-col">
             <textarea
+              rows={3}
               className="form-textarea rounded-lg text-gray-600"
               placeholder="add description..."
               {...register("description")}
