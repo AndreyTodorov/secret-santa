@@ -1,3 +1,12 @@
+## [1.1.11](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.10...v1.1.11) (2023-04-23)
+
+
+### Bug Fixes
+
+* **ui:** smaller paddings on the modal ([78ecdcd](https://github.com/AndreyTodorov/secret-santa/commit/78ecdcd37c798996cce1403eddb4cabc288cc5e8))
+* **ux:** implemented infinite scroll ([a140aee](https://github.com/AndreyTodorov/secret-santa/commit/a140aee447379e0a67e364fb3e2ee3b2494b4273))
+* **ux:** scroll to top button ([06e466e](https://github.com/AndreyTodorov/secret-santa/commit/06e466ecccda68417ebc15b7e5023ef1fedbef2b))
+
 ## [1.1.10](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.9...v1.1.10) (2023-04-22)
 
 ### Bug Fixes
