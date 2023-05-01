@@ -46,7 +46,9 @@ const HomeIntake: NextPage = () => {
     setIsModalOpen(true);
   }
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return <div className="flex items-center justify-center">Loading...</div>;
+
   if (error) return <div>{error.message}</div>;
   if (!fetchedIntakes) return <div>You have no intakes</div>;
 
