@@ -14,7 +14,8 @@
     [X] add user pic from session
     [X] implement caching the deps on github actions
     [X] extract the buttom from the modal
-    [] use state management for selected intake and openModal
+    [] use state management for selected intake and openModal to prevent prop drilling
+    [] soft delete
     [] use tailwind ui components
 
 # Fasting Tracker
@@ -27,7 +28,7 @@
         [X] create records from the site
         [] when updating, set the cache entry, don't invalidate
 
-    [] make web take advantage of the space: make the cards smaller and horizontal layout
+    [] make website take advantage of the space: make the cards smaller and horizontal layout
     [] show basic stats
     [] show fansy stats
 
