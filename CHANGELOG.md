@@ -1,3 +1,12 @@
+## [1.1.15](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.14...v1.1.15) (2023-05-01)
+
+
+### Bug Fixes
+
+* todos and session status ([0862d7a](https://github.com/AndreyTodorov/secret-santa/commit/0862d7a7da610c48e9cf77e55d08bf1bdaa1293e))
+* **ui:** loader ([9c7926a](https://github.com/AndreyTodorov/secret-santa/commit/9c7926af28ad1bde2efcf8d038fcf3d10c429ffa))
+* **ui:** loading ([7463ff1](https://github.com/AndreyTodorov/secret-santa/commit/7463ff113023f691d588064008d22e9985914ebe))
+
 ## [1.1.14](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.13...v1.1.14) (2023-04-23)
 
 ### Bug Fixes
