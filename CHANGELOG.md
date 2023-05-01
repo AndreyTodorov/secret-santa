@@ -1,10 +1,9 @@
 ## [1.1.14](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.13...v1.1.14) (2023-04-23)
 
-
 ### Bug Fixes
 
-* cleanup ([af103b7](https://github.com/AndreyTodorov/secret-santa/commit/af103b7e98c397f5092517c68fa5b93b71c04f94))
-* correct state of selected intake ([37b21a3](https://github.com/AndreyTodorov/secret-santa/commit/37b21a35319db43c26167e111643eb3e558abe88))
+- cleanup ([af103b7](https://github.com/AndreyTodorov/secret-santa/commit/af103b7e98c397f5092517c68fa5b93b71c04f94))
+- correct state of selected intake ([37b21a3](https://github.com/AndreyTodorov/secret-santa/commit/37b21a35319db43c26167e111643eb3e558abe88))
 
 ## [1.1.13](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.12...v1.1.13) (2023-04-23)
 
