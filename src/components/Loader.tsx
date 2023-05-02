@@ -1,11 +1,11 @@
 export const Loader = () => {
   return (
     <svg
-      width="45"
-      height="45"
+      width="60"
+      height="60"
       viewBox="0 0 45 45"
       xmlns="http://www.w3.org/2000/svg"
-      stroke="##4f46e5"
+      stroke="#4f46e5"
     >
       <g
         fill="none"
