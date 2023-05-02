@@ -10,6 +10,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
 import { useState } from "react";
 import { ModalButton } from "@/components/fasting-tracker/IntakeModal/ModalButton";
+import { Loader } from "@/components/Loader";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
@@ -47,7 +48,11 @@ const HomeIntake: NextPage = () => {
   }
 
   if (isLoading)
-    return <div className="flex items-center justify-center">Loading...</div>;
+    return (
+      <div className="flex items-center justify-center">
+        <Loader />
+      </div>
+    );
 
   if (error) return <div>{error.message}</div>;
   if (!fetchedIntakes) return <div>You have no intakes</div>;
