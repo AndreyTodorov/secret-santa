@@ -1,4 +1,4 @@
-import { Loader } from "@/components/Loader";
+import { CardSkeleton } from "@/components/fasting-tracker/Loaders/CardSkeleton";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projectCards } from "@/lib/projects";
 import { type NextPage } from "next";
@@ -8,11 +8,7 @@ const Home: NextPage = () => {
   const { status } = useSession();
 
   if (status === "loading") {
-    return (
-      <div className="flex items-center justify-center">
-        <Loader />
-      </div>
-    );
+    return <CardSkeleton count={4} />;
   }
 
   return (

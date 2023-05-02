@@ -11,6 +11,7 @@ import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
 import { useState } from "react";
 import { ModalButton } from "@/components/fasting-tracker/IntakeModal/ModalButton";
 import { Loader } from "@/components/Loader";
+import { DayCardSkeleton } from "@/components/fasting-tracker/Loaders/DayCardSkeleton";
 dayjs.extend(duration);
 dayjs.extend(isToday);
 
@@ -47,12 +48,7 @@ const HomeIntake: NextPage = () => {
     setIsModalOpen(true);
   }
 
-  if (isLoading)
-    return (
-      <div className="flex items-center justify-center">
-        <Loader />
-      </div>
-    );
+  if (isLoading) return <DayCardSkeleton count={7} />;
 
   if (error) return <div>{error.message}</div>;
   if (!fetchedIntakes) return <div>You have no intakes</div>;
