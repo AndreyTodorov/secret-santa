@@ -1,10 +1,9 @@
 ## [1.1.16](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.15...v1.1.16) (2023-05-02)
 
-
 ### Bug Fixes
 
-* **typo:** typo ([527dcc0](https://github.com/AndreyTodorov/secret-santa/commit/527dcc037dcd3a6ef304ab44a371c7948139d292))
-* **ui:** loader ([b7ed17d](https://github.com/AndreyTodorov/secret-santa/commit/b7ed17dfb5d5299fda8b43883886469a15faf5f4))
+- **typo:** typo ([527dcc0](https://github.com/AndreyTodorov/secret-santa/commit/527dcc037dcd3a6ef304ab44a371c7948139d292))
+- **ui:** loader ([b7ed17d](https://github.com/AndreyTodorov/secret-santa/commit/b7ed17dfb5d5299fda8b43883886469a15faf5f4))
 
 ## [1.1.15](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.14...v1.1.15) (2023-05-01)
 
