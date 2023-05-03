@@ -10,7 +10,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { type UpsertIntakeInputType } from "@/schemas/intake.schema";
 import { useState } from "react";
 import { ModalButton } from "@/components/fasting-tracker/IntakeModal/ModalButton";
-import { Loader } from "@/components/Loader";
 import { DayCardSkeleton } from "@/components/fasting-tracker/Loaders/DayCardSkeleton";
 dayjs.extend(duration);
 dayjs.extend(isToday);
