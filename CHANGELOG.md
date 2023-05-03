@@ -1,10 +1,9 @@
 ## [1.1.17](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.16...v1.1.17) (2023-05-02)
 
-
 ### Bug Fixes
 
-* **ui:** skeletons ([ae1362a](https://github.com/AndreyTodorov/secret-santa/commit/ae1362ae143bdc7349ab13728b30fbeb9f5c5074))
-* **ui:** tweaks ([fd8b547](https://github.com/AndreyTodorov/secret-santa/commit/fd8b547266437d4b2db30ea96e3afb7dd0bcbbb5))
+- **ui:** skeletons ([ae1362a](https://github.com/AndreyTodorov/secret-santa/commit/ae1362ae143bdc7349ab13728b30fbeb9f5c5074))
+- **ui:** tweaks ([fd8b547](https://github.com/AndreyTodorov/secret-santa/commit/fd8b547266437d4b2db30ea96e3afb7dd0bcbbb5))
 
 ## [1.1.16](https://github.com/AndreyTodorov/secret-santa/compare/v1.1.15...v1.1.16) (2023-05-02)
 
