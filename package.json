@@ -24,7 +24,7 @@
     "dx": "yarn db:seed && yarn dev"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.14",
+    "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.17",
     "@hookform/resolvers": "^3.0.0",
     "@next-auth/prisma-adapter": "^1.0.5",
