@@ -9,12 +9,12 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js 18.16.0
+      - name: Use Node.js 24
         uses: actions/setup-node@v3
         with:
-          node-version: "18.16.0"
+          node-version: "24.1.0"
 
       #  When a cache is created by a workflow run triggered on a pull request, the cache is created for the merge ref (refs/pull/.../merge). Because of this, the cache will have a limited scope and can only be restored by re-runs of the pull request.
       # - name: Get node_modules cache
