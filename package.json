@@ -38,7 +38,7 @@
     "dayjs": "^1.11.7",
     "husky": "^8.0.3",
     "lodash": "^4.17.21",
-    "next": "^13.2.1",
+    "next": "^14.2.26",
     "next-auth": "^4.19.0",
     "next-translate": "^2.0.3",
     "nodemailer": "^6.9.1",
